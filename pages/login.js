@@ -3,7 +3,19 @@ function Login() {
   const usernameRef = React.useRef();
   const passwordRef = React.useRef();
 
-  const hs = () => {};
+  const hs = () => {
+    const u = usernameRef.current.value;
+    const p = passwordRef.current.value;
+    fetch('https://fakestoreapi.com/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: u,
+        password: p,
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  };
 
   return (
     <div>
