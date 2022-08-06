@@ -1,8 +1,6 @@
 import Link from 'next/link';
 
 function Category({ products, categories }) {
-  console.log(products);
-  console.log(categories);
   return (
     <div>
       <h1>Category page ?</h1>
@@ -23,10 +21,13 @@ function Category({ products, categories }) {
 
 export default Category;
 
-export async function getServerSideProps() {
-  const products = await fetch('https://fakestoreapi.com/products').then((d) =>
-    d.json()
-  );
+export async function getServerSideProps(context) {
+  // console.log("url data is ",context.query.catName)
+  const cat = context.query.catName;
+
+  const products = await fetch(
+    `https://fakestoreapi.com/products/category/${cat}`
+  ).then((d) => d.json());
   const categories = await fetch(
     'https://fakestoreapi.com/products/categories'
   ).then((d) => d.json());

@@ -1,15 +1,13 @@
 import Link from 'next/link';
 
 function Home({ products, categories }) {
-  console.log(products);
-  console.log(categories);
   return (
     <div>
       <h1>Home page</h1>
       <div>
         <h3>all categories {categories.length}</h3>
         {categories.map((x) => (
-          <Link href={`/category/${x}`}>
+          <Link key={x} href={`/category/${x}`}>
             <a>{x}</a>
           </Link>
         ))}
