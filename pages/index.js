@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import Card from '../components/Card';
 function Home({ products, categories }) {
   return (
     <div>

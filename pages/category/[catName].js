@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import Card from '../components/Card';
 function Category({ products, categories }) {
   return (
     <div>
