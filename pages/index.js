@@ -1,5 +1,40 @@
-function Home() {
-  return <div>Home page </div>;
+import Link from 'next/link';
+
+function Home({ products, categories }) {
+  console.log(products);
+  console.log(categories);
+  return (
+    <div>
+      <h1>Home page</h1>
+      <div>
+        <h3>all categories {categories.length}</h3>
+        {categories.map((x) => (
+          <Link href={`/category/${x}`}>
+            <a>{x}</a>
+          </Link>
+        ))}
+      </div>
+      <div>
+        <h3>all products {products.length}</h3>
+      </div>
+    </div>
+  );
 }
 
 export default Home;
+
+export async function getServerSideProps() {
+  const products = await fetch('https://fakestoreapi.com/products').then((d) =>
+    d.json()
+  );
+  const categories = await fetch(
+    'https://fakestoreapi.com/products/categories'
+  ).then((d) => d.json());
+
+  return {
+    props: {
+      products: products,
+      categories: categories,
+    },
+  };
+}
