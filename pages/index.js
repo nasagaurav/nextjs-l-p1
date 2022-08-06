@@ -14,6 +14,9 @@ function Home({ products, categories }) {
       </div>
       <div>
         <h3>all products {products.length}</h3>
+        {products.map((item, index) => (
+          <Card key={index} {...item} />
+        ))}
       </div>
     </div>
   );
