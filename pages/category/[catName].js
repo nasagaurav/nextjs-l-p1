@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Card from '../../components/Card';
-function Category({ products, categories }) {
+function Category({ products, categories, catName }) {
   return (
     <div>
-      <h1>Category page ?</h1>
+      <h1>Category page {catName}</h1>
       <div>
         <h3>all categories {categories.length}</h3>
         {categories.map((x) => (
@@ -39,6 +39,7 @@ export async function getServerSideProps(context) {
     props: {
       products: products,
       categories: categories,
+      catName: cat,
     },
   };
 }
