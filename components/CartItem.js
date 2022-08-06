@@ -8,6 +8,17 @@ function CartItem(props) {
     rating: { rate: 0, count: 0 },
     price: 0,
   });
+
+  const boot = () => {
+    if (props.productid) {
+      fetch(`https://fakestoreapi.com/products/${props.productid}`)
+        .then((res) => res.json())
+        .then((json) => setproduct(json));
+    }
+  };
+
+  React.useEffect(boot, [props]);
+
   return (
     <div>
       <h3>{productid}</h3>
