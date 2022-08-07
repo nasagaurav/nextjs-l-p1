@@ -22,7 +22,7 @@ function Home({ products, categories }) {
           </Link>
         ))}
       </div>
-      <div className="products mt-5">
+      <div className="products mt-5 flex flex-wrap">
         {products.map((item, index) => (
           <Card key={index} {...item} />
         ))}
