@@ -3,23 +3,34 @@ import Link from 'next/link';
 
 function Header() {
   return (
-    <div>
-      <div>Ecommerce</div>
-      <div>
+    <div
+      className="
+      my-menu 
+      bg-black text-white
+      flex justify-between items-center 
+      sticky top-0 
+      px-5 
+      "
+    >
+      <div className="left">
+        <h1 className="p-2 text-4xl">Ecommerce</h1>
+      </div>
+
+      <div className="right">
         <Link href="/">
-          <a>Home</a>
+          <a className="p-2">Home</a>
         </Link>
         <Link href="/login">
-          <a>Login</a>
+          <a className="p-2">Login</a>
         </Link>
         <Link href="/signup">
-          <a>signup</a>
+          <a className="p-2">signup</a>
         </Link>
         <Link href="/cart">
-          <a>cart</a>
+          <a className="p-2">cart</a>
         </Link>
         <Link href="/orders">
-          <a>orders</a>
+          <a className="p-2">orders</a>
         </Link>
       </div>
     </div>
