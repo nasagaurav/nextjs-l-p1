@@ -2,18 +2,30 @@ import Link from 'next/link';
 import Card from '../../components/Card';
 function Category({ products, categories, catName }) {
   return (
-    <div>
-      <h1>Category page {catName}</h1>
+    <div className="main p-5">
+      <h1 className="inline-flex bg-gray-300  p-5 rounded-full shadow-md">
+        Category page {catName}
+      </h1>
       <div>
-        <h3>all categories {categories.length}</h3>
+        <h3 className="my-5">all categories {categories.length}</h3>
         {categories.map((x) => (
           <Link key={x} href={`/category/${x}`}>
-            <a>{x}</a>
+            <a
+              className="
+            m-2 
+            bg-[tomato] text-white p-2 
+            rounded-full  
+            hover:shadow-[0px_2px_10px_grey] 
+            hover:bg-[slateblue] 
+            
+            "
+            >
+              {x}
+            </a>
           </Link>
         ))}
       </div>
-      <div>
-        <h3>all products {products.length}</h3>
+      <div className="products mt-5 flex flex-wrap">
         {products.map((item, index) => (
           <Card key={index} {...item} />
         ))}
